@@ -1,4 +1,4 @@
-Feature: As a user, I want to be able to access the website to use it.
+Feature:US01 As a user, I want to be able to access the website to use it.
 
   @US01
   Scenario: TC01 The user should be able to access the website from the browser using the given URL.
