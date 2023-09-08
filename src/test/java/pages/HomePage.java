@@ -63,6 +63,31 @@ public class HomePage {
     @FindBy(xpath = "(//marquee[@behavior='scroll'])[1]")
     private WebElement scrollTextHomePage;
 
+    //*******S.D*****
+    @FindBy(xpath = "//section[@class='contact']//p")
+    private WebElement contactPageVerifyText;
+    //(//input[@id='name'])[2]
+    @FindBy(xpath = "(//input[@id='name'])[2]")
+    private WebElement nameContactPageTextBox;
+    @FindBy(xpath = "(//input[@id='email'])[3]")
+    private WebElement emailContactPageTextBox;
+    @FindBy(xpath = "(//input[@id='subject'])[1]")
+    private WebElement subjectContactPageTextBox;
+    @FindBy(xpath = "//textarea[@id='description']")
+    private WebElement descriptionContactPageTextBox;
+    @FindBy(xpath = "(//input[@name='submit'])[1]")
+    private WebElement contactPageSubmitButton;
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    private WebElement contactPageSuccessfullySubmitAlertMessage;
+    @FindBy(xpath = "//div[@class='col-md-12 alert alert-danger']")
+    private WebElement contactPageFailureAlert;
+    @FindBy(xpath = "(//div[@class='contact-item'])[1]")
+    private WebElement ourLocationContactPage;
+    @FindBy(xpath = "(//div[@class='contact-item'])[2]")
+    private WebElement callUsContactPage;
+    @FindBy(xpath = "(//div[@class='contact-item'])[3]")
+    private WebElement workingHoursContactPage;
+
 
     //******************************************** METHODS *********************************************************
 
@@ -141,6 +166,59 @@ public class HomePage {
         Assert.assertTrue(contactButtonMainPage.isDisplayed());
     }
 
+    //****S.D******
+    public void contactPageTextIsDisplayed(){
+        Assert.assertTrue(contactPageVerifyText.isDisplayed());
+    }
+    public void contactPageTextBoxesIsVisible(){
+        Assert.assertTrue(nameContactPageTextBox.isDisplayed());
+        nameContactPageTextBox.sendKeys("Sezen");
+        nameContactPageTextBox.clear();
+        Assert.assertTrue( emailContactPageTextBox.isDisplayed());
+        emailContactPageTextBox.sendKeys("sezen@gmail.com");
+        emailContactPageTextBox.clear();
+        Assert.assertTrue( subjectContactPageTextBox.isDisplayed());
+        subjectContactPageTextBox.sendKeys("Hello");
+        subjectContactPageTextBox.clear();
+        Assert.assertTrue(descriptionContactPageTextBox.isDisplayed());
+
+    }
+    public void contactPageSuccessfullyMessageWhenEntersRightInformations(){
+        nameContactPageTextBox.sendKeys("Vicky");
+        emailContactPageTextBox.sendKeys("vicky@gmail.com");
+        subjectContactPageTextBox.sendKeys("Hello");
+        contactPageSubmitButton.click();
+
+
+    }
+    public void contactPageSubmittedSuccessfullyAlertMessageIsDisplay(){
+        Assert.assertTrue(contactPageSuccessfullySubmitAlertMessage.isDisplayed());
+        //System.out.println(contactPageSuccessfullySubmitAlertMessage.getText());
+
+    }
+    public void contactPageNegativeInformations(String name , String email, String subject, String description){
+
+        nameContactPageTextBox.sendKeys(name);
+        emailContactPageTextBox.sendKeys(email);
+        subjectContactPageTextBox.sendKeys(subject);
+        descriptionContactPageTextBox.sendKeys(description);
+        contactPageSubmitButton.click();
+
+
+
+    }
+    public void contactPageSubmittedFailureAlertMessageIsDisplay(){
+        Assert.assertTrue(contactPageFailureAlert.isDisplayed());
+        //System.out.println(contactPageSuccessfullySubmitAlertMessage.getText());
+
+    }
+    public void contactPageHoursCallUSWorkingHoursIsDisplay(){
+        System.out.println(ourLocationContactPage.getText());
+        Assert.assertTrue( callUsContactPage.isDisplayed());
+        Assert.assertTrue( workingHoursContactPage.isDisplayed());
+
+
+    }
 
 
 
