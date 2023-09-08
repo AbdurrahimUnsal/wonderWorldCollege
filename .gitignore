@@ -8,7 +8,7 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 .idea/vcs.xml
-.dbnavigator.xml
+.idea/dbnavigator.xml
 *.iws
 *.iml
 *.ipr
